@@ -1,69 +1,46 @@
 ﻿<!--  model Persona //model asigna el tipo de dato --- Model accede al tipo de dato (variables).-->
+@model HomeIndexVIewModel
+
 @{
     ViewData["Title"] = "Home Page";
-
-
 }
 
-<partial name="_Presentacion"/>
+<partial name="_Presentacion" />
 
-<div style="margin-top: -105px">
-<div class="row justify-content-md-center text-center">
-    <div class="col col-3 bg-white habilidades" style="border-radius:15px 0 0 15px; box-shadow:0 5px 5px 0 gray">
-        <i class="bi bi-hdd-rack"></i> 
-        <h3>Back-End</h3>
-        <p>
-            Trabajo desarrollando pruebas automaticas con entregas continuas
-        </p>
-        <p class="text-primary cabecera">
-            Stack:
-        </p>
-        <p>
-            ASP.NET CORE, SQL server
-        </p>
-        <p class="text-primary cabecera">
-            Experiencia:
-        </p>
-        <ul>
-            <li>React Hooks</li>
-            <li>Angular Material</li>
-            <li>Blazor WASM</li>
-            <li>JQuery</li>
-            <li>Pruebas Automatizadas</li>
-            <li>Leaflet</li>
-            <li>Markdown</li>
+<partial name="_Habilidades" />
 
-        </ul>
-    </div>
-        <div class="col col-3 bg-white habilidades" style="border-radius:0 15px 15px 0; box-shadow:0 5px 5px 0 gray">
-        <i class="bi bi-code-slash" ></i>
-        <h3>Front-End</h3>
-        <p>
-            Puedo crear front-ends robustos los cuales cumplen con los requerimientos del negocio
-        </p>
-        <p class="text-primary cabecera">
-            Stack:
-        </p>
-        <p>
-            React, Angular, Blazor
-        </p>
-        <p class="text-primary cabecera">
-            Experiencia:
-        </p>
-        <ul>
-            <li>Web Apis</li>
-            <li>ASP.net core MVC</li>
-            <li>Entity Framework</li>
-            <li>Blazor</li>
-            <li>Dapper</li>
-            <li>Queries</li>
-            <li>Principios Solid</li>
+@if (Model.Proyectos is not null)
+{
+    <div class='text-center' style="padding-top: 6rem;">
+        <h1>Mis trabajos recientes</h1>
+        <p>Aqui puedes ver algunos de mis trabajos mas recientes.</p>
 
-        </ul>
+
     </div>
 
-</div>
-</div>
+    <div classs="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var proyecto in Model.Proyectos)
+            {
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="@proyecto.ImagenURL" class="card-img-top" alt=" @proyecto.Titulo">
+                        <div class="card-body">
+                            <h5 class="card-title">@proyecto.Titulo</h5>
 
+                            <p class="card-text">@proyecto.Descripcion</p>
+
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="@proyecto.Link" target="_blank" rel="noopener noreferrer"> Visitar</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+}
 
 
