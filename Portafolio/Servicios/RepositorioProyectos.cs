@@ -19,7 +19,7 @@ public class RepositorioProyectos: IRepositorioProyectos
                     Titulo = "Amazon",
                     Descripcion = "E-commerce realizado en ASP.NET core",
                     Link = "https://amazon.com",
-                    ImagenURL = "./imagenes/amazon2.png "
+                    ImagenURL = "imagenes/amazon2.png "
 
                 },
                 new Proyecto{
